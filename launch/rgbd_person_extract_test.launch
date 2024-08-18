@@ -1,0 +1,31 @@
+<!--#######################################-->
+<!-- Copyright (c) 2024  Dong Zhaorui.     -->
+<!-- All rights reserved.                  -->
+<!-- Author: Dong Zhaorui 847235539@qq.com -->
+<!-- Date  : 2024-08-13                    -->
+<!--#######################################-->
+
+<launch>
+
+    # orbbec dabai dcw
+    <include file="$(find orbbec_camera)/launch/dabai_dcw.launch">
+        <arg name="visualize" value="false"/>
+    </include>
+
+    # rgbd_person_extract
+    <node pkg="hex_rgbd_person_extract" type="rgbd_person_extract.py" name="rgbd_person_extract" output="screen">
+        # parameter
+        <rosparam command="load" file="$(find hex_rgbd_person_extract)/config/rgbd_person_extract.yaml"/>
+        <param name="model_path" type="string" value="$(find hex_rgbd_person_extract)/models/yolov8n.trt"/>
+        # subscriber
+        <remap from="image" to="/camera/color/image_raw" />
+        <remap from="depth" to="/camera/depth/image_raw" />
+        # publisher
+        <remap from="person_cloud" to="person_cloud" />
+        <remap from="merge_debug" to="merge_debug" />
+    </node>
+
+    # rviz
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find hex_rgbd_person_extract)/config/rgbd_person_extract.rviz" required="true"/>
+
+</launch>

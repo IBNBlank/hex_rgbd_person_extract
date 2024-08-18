@@ -1,0 +1,5 @@
+search_time: 0.1
+cloud_frame: "camera_color_optical_frame"
+# [fx, fy, cx, xy]
+depth_intrinsics:
+  [346.086669921875, 346.086669921875, 323.208984375, 183.76251220703125]
