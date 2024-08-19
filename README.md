@@ -42,7 +42,7 @@ These instructions will get you a copy of the project up and running on your loc
 2. Clone this repository:
 
    ```shell
-   git clone https://gitlab.hexmove.cn/IBN_Blank/hex_rgbd_person_extract.git
+   git clone https://github.com/IBNBlank/hex_rgbd_person_extract.git
    ```
 
 3. Navigate back to the `catkin_ws` directory and build the workspace:
@@ -58,10 +58,10 @@ These instructions will get you a copy of the project up and running on your loc
    source devel/setup.bash --extend
    ```
 
-### Platforms
+### Verified Platforms
 
-* [ ] **Jetson Orin NX**
 * [ ] **Jetson Orin Nano**
+* [x] **Jetson Orin NX**
 * [ ] **Jetson AGX Orin**
 * [ ] **RK3588**
 
@@ -91,7 +91,7 @@ What additional things you need to use the software
 
 ### Usage
 
-1. Launch the kinematic node:
+1. Launch the `rgbd_person_extract` node:
 
    ```shell
    roslaunch hex_rgbd_person_extract rgbd_person_extract.launch
